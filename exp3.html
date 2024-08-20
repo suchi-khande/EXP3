@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Text and Color</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            background: #4CAF50;
+            padding: 20px;
+            border-radius: 50px;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="myContainer">
+        <p id="myText">Hello I am suchi if you want more details "pingme"</p>
+        <button onclick="toggleState()" id="myButton">Ping Me</button>
+    </div>
+
+    <script>
+        let isInitialState = true;
+
+        function toggleState() {
+            const container = document.getElementById('myContainer');
+            const text = document.getElementById('myText');
+            const button = document.getElementById('myButton');
+
+            if (isInitialState) {
+                container.style.backgroundColor = '#FF5733';  // Change container color
+                text.textContent = 'I am frontend developer';            // Change text inside container
+                button.textContent = 'ThankYou for visit';               // Change button text
+                container.style.color = '#000';               // Change text color
+            } else {
+                container.style.backgroundColor = '#4CAF50';  // Revert container color
+                text.textContent = 'Hello I am suchi if you want more details "pingme"';            // Revert text inside container
+                button.textContent = 'Ping Me';          // Revert button text
+                container.style.color = '#FFF';               // Revert text color
+            }
+
+            isInitialState = !isInitialState; // Toggle state
+        }
+    </script>
+</body>
+</html>
